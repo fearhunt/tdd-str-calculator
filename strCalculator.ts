@@ -1,5 +1,15 @@
 export function add(strNum: string): number {
   if (strNum === '') return 0
-  const nums = strNum.split(/,|\n/).map(Number)
+
+  let numsDelimiter = /,|\n/
+
+  if (strNum.startsWith('//')) {
+    const strPart   = strNum.split('\n')
+    const delimiter = strPart[0].slice(2) 
+    numsDelimiter   = new RegExp(delimiter)
+    strNum          = strPart[1] // reminder of delimiter syntax
+  }
+
+  const nums = strNum.split(numsDelimiter).map(Number)
   return nums.reduce((sum, num) => sum + num, 0)
 }

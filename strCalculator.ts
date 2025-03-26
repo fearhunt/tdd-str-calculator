@@ -1,3 +1,5 @@
 export function add(strNum: string): number {
-  return 0
+  if (strNum === '') return 0
+
+  return Number(strNum)
 }

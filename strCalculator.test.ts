@@ -15,3 +15,7 @@ test('return sums of two number comma-separated', () => {
 test('return sums of multiple numbers comma-separated', () => {
   expect(add('1,5,3,2')).toBe(11)
 })
+
+test('return sums with newline', () => {
+  expect(add('1\n2,3')).toBe(6)
+})

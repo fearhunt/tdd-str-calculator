@@ -35,3 +35,7 @@ test('throws negative numbers', () => {
 test('ignore sums when number is bigger than 1000', () => {
   expect(add('7,1001,2517')).toBe(7)
 })
+
+test('return sums with custom delimiter any length', () => {
+  expect(add('//[***]\n1***2***3')).toBe(6)
+})

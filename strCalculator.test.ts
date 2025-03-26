@@ -11,3 +11,7 @@ test('return input number', () => {
 test('return sums of two number comma-separated', () => {
   expect(add('1,5')).toBe(6)
 })
+
+test('return sums of multiple numbers comma-separated', () => {
+  expect(add('1,5,3,2')).toBe(11)
+})

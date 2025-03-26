@@ -43,3 +43,7 @@ test('return sums with custom delimiter any length', () => {
 test('return sums with multiple delimiters', () => {
   expect(add('//[*][%]\n1*2%3')).toBe(6)
 })
+
+test('return sums with multiple delimiters and different lengths', () => {
+  expect(add('//[***][%%]\n1***2%%3')).toBe(6)
+})

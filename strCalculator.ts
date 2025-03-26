@@ -16,5 +16,7 @@ export function add(strNum: string): number {
   if (negativeNums.length > 0)
     throw new Error(`negative numbers are not allowed: ${negativeNums.join(', ')}`)
 
-  return nums.reduce((sum, num) => sum + num, 0)
+  return nums.reduce((sum, num) => {
+    return num <= 1000 ? sum + num : sum
+  }, 0)
 }

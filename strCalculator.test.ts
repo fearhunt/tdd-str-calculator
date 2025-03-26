@@ -31,3 +31,7 @@ test('throws error if any negative number', () => {
 test('throws negative numbers', () => {
   expect(() => add('1,-2,5,-8,10')).toThrow('negative numbers are not allowed: -2, -8')
 })
+
+test('ignore sums when number is bigger than 1000', () => {
+  expect(add('7,1001,2517')).toBe(7)
+})

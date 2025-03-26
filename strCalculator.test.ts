@@ -39,3 +39,7 @@ test('ignore sums when number is bigger than 1000', () => {
 test('return sums with custom delimiter any length', () => {
   expect(add('//[***]\n1***2***3')).toBe(6)
 })
+
+test('return sums with multiple delimiters', () => {
+  expect(add('//[*][%]\n1*2%3')).toBe(6)
+})

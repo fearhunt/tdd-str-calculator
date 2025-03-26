@@ -11,5 +11,9 @@ export function add(strNum: string): number {
   }
 
   const nums = strNum.split(numsDelimiter).map(Number)
+  const negativeNumIndex = nums.findIndex((num) => num < 0)
+  if (negativeNumIndex !== -1)
+    throw new Error(`negative numbers are not allowed: ${nums[negativeNumIndex]}`)
+
   return nums.reduce((sum, num) => sum + num, 0)
 }

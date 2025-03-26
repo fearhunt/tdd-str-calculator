@@ -10,10 +10,11 @@ export function add(strNum: string): number {
     strNum          = strPart[1] // reminder of delimiter syntax
   }
 
-  const nums = strNum.split(numsDelimiter).map(Number)
-  const negativeNumIndex = nums.findIndex((num) => num < 0)
-  if (negativeNumIndex !== -1)
-    throw new Error(`negative numbers are not allowed: ${nums[negativeNumIndex]}`)
+  const nums         = strNum.split(numsDelimiter).map(Number)
+  const negativeNums = nums.filter((num) => num < 0)
+
+  if (negativeNums.length > 0)
+    throw new Error(`negative numbers are not allowed: ${negativeNums.join(', ')}`)
 
   return nums.reduce((sum, num) => sum + num, 0)
 }

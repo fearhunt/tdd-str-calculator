@@ -27,3 +27,7 @@ test('return sums with custom delimiter', () => {
 test('throws error if any negative number', () => {
   expect(() => add('1,-2,5')).toThrow('negative numbers are not allowed: -2')
 })
+
+test('throws negative numbers', () => {
+  expect(() => add('1,-2,5,-8,10')).toThrow('negative numbers are not allowed: -2, -8')
+})

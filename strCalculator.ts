@@ -4,10 +4,20 @@ export function add(strNum: string): number {
   let numsDelimiter = /,|\n/
 
   if (strNum.startsWith('//')) {
-    const strPart   = strNum.split('\n')
-    const delimiter = strPart[0].slice(2) 
+    const strPart = strNum.split('\n')
+    let delimiter = strPart[0].slice(2)
+
+    if (delimiter.startsWith('[') && delimiter.endsWith(']')) {
+      delimiter = 
+        delimiter
+          .slice(1, -1)
+          .split('][')
+          .map((d) => d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+          .join('|')
+    }
+
     numsDelimiter   = new RegExp(delimiter)
-    strNum          = strPart[1] // reminder of delimiter syntax
+    strNum          = strPart[1] // remainder of delimiter syntax
   }
 
   const nums         = strNum.split(numsDelimiter).map(Number)
